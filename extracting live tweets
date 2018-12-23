@@ -1,0 +1,21 @@
+from tweepy import Stream
+from tweepy import OAuthHandler
+from tweepy.streaming import StreamListener
+
+ckey="K5ePlxlDXTxkgkiXjd07FIxmm"
+csecret="k0Ybz7e1uX02K1DPAU2AjGnIB5wruEsN5cGwQGNd1G44LyNWOB"
+atoken="1046022859879997441-KXLtw8XhN3HuukNujNjXaRGhTt1HAJ"
+asecret="Slir9m9IZiS6KHjPsohFjzojk6VLCYRwX2JFdCr7elIc9"
+
+class listner(StreamListener):
+
+    def on_data(self,data):
+        print (data)
+        return True
+    def on_error(Self, status):
+        print (status)
+
+auth=OAuthHandler(ckey,csecret)
+auth.set_access_token(atoken,asecret)
+twitterStream=Stream(auth, listner())
+twitterStream.filter(track=["india"])
