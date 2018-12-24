@@ -2,10 +2,10 @@ from tweepy import Stream
 from tweepy import OAuthHandler
 from tweepy.streaming import StreamListener
 
-ckey="K5ePlxlDXTxkgkiXjd07FIxmm"
-csecret="k0Ybz7e1uX02K1DPAU2AjGnIB5wruEsN5cGwQGNd1G44LyNWOB"
-atoken="1046022859879997441-KXLtw8XhN3HuukNujNjXaRGhTt1HAJ"
-asecret="Slir9m9IZiS6KHjPsohFjzojk6VLCYRwX2JFdCr7elIc9"
+ckey="enter your API key here"
+csecret="enter your API secret key"
+atoken="enter your access token here"
+asecret="enter your access token secret here"
 
 class listner(StreamListener):
 
