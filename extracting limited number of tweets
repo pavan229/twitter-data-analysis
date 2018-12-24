@@ -1,0 +1,23 @@
+import sys
+import tweepy
+
+consumerKey="enter your API key here"
+consumerSecret="enter your API secret key here"
+accessToken="enter your access token here"
+accessTokenSecret="enter your access token secret here"
+                       
+
+auth=tweepy.OAuthHandler(consumer_key=consumerKey, consumer_secret=consumerSecret)
+auth.set_access_token(accessToken, accessTokenSecret)
+api = tweepy.API(auth)
+
+
+searchTerm=input("enter keyword/ hashtag to search about: ")
+noOfSearchTerms=int(input("how many tweets to extract: "))
+
+tweets=tweepy.Cursor(api.search, q=searchTerm, lang="en").items(noOfSearchTerms)
+
+for tweet in tweets:
+           #print(tweet.text)
+           non_bmp_map = dict.fromkeys(range(0x10000, sys.maxunicode + 1), 0xfffd)
+           print(tweet.text.translate(non_bmp_map))
